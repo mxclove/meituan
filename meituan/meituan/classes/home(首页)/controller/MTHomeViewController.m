@@ -10,6 +10,7 @@
 #import "MTConst.h"
 #import "UIBarButtonItem+Extension.h"
 #import "UIView+Extension.h"
+#import "MTHomeTopItem.h"
 
 @interface MTHomeViewController ()
 
@@ -47,9 +48,21 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)setupLeftNav
 {
     //1 logo
-    UIBarButtonItem *logo = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonSystemItemOrganize target:nil action:nil];
+    UIBarButtonItem *logo = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStyleDone target:nil action:nil];
     
-    self.navigationItem.leftBarButtonItems = @[logo];
+    logo.enabled = NO;
+    //2 类别
+    MTHomeTopItem *categoryItem = [MTHomeTopItem item];
+    UIBarButtonItem *category = [[UIBarButtonItem alloc] initWithCustomView:categoryItem];
+    //2 地区
+    MTHomeTopItem *districtItem = [MTHomeTopItem item];
+    UIBarButtonItem *district = [[UIBarButtonItem alloc] initWithCustomView:districtItem];
+    //2 排序
+    MTHomeTopItem *sortItem = [MTHomeTopItem item];
+    UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortItem];
+    
+    
+    self.navigationItem.leftBarButtonItems = @[logo,category,district,sort];
 }
 
 - (void)setupRightNav
