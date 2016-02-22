@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MTHomeViewController.h"
+#include "MTNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] init];
+    self.window.frame = [UIScreen mainScreen].bounds;
+    self.window.rootViewController = [[MTNavigationController alloc] initWithRootViewController:[[MTHomeViewController alloc] init]];
+    [self.window makeKeyAndVisible]; // 设置它为主窗口，并让它显示出来。
+    
+    
     return YES;
 }
 
