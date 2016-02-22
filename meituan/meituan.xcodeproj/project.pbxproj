@@ -12,7 +12,6 @@
 		4C69F6541C7A021600C0CB1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C69F6531C7A021600C0CB1C /* ViewController.m */; };
 		4C69F6571C7A021600C0CB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69F6551C7A021600C0CB1C /* Main.storyboard */; };
 		4C69F6591C7A021600C0CB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C69F6581C7A021600C0CB1C /* Assets.xcassets */; };
-		4C69F65C1C7A021600C0CB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69F65A1C7A021600C0CB1C /* LaunchScreen.storyboard */; };
 		4C69F6671C7A021600C0CB1C /* meituanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C69F6661C7A021600C0CB1C /* meituanTests.m */; };
 		4C69F6721C7A021600C0CB1C /* meituanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C69F6711C7A021600C0CB1C /* meituanUITests.m */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		4C69F6531C7A021600C0CB1C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4C69F6561C7A021600C0CB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C69F6581C7A021600C0CB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4C69F65B1C7A021600C0CB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C69F65D1C7A021600C0CB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C69F6621C7A021600C0CB1C /* meituanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = meituanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C69F6661C7A021600C0CB1C /* meituanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = meituanTests.m; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				4C69F6531C7A021600C0CB1C /* ViewController.m */,
 				4C69F6551C7A021600C0CB1C /* Main.storyboard */,
 				4C69F6581C7A021600C0CB1C /* Assets.xcassets */,
-				4C69F65A1C7A021600C0CB1C /* LaunchScreen.storyboard */,
 				4C69F65D1C7A021600C0CB1C /* Info.plist */,
 				4C69F64C1C7A021600C0CB1C /* Supporting Files */,
 			);
@@ -243,7 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C69F65C1C7A021600C0CB1C /* LaunchScreen.storyboard in Resources */,
 				4C69F6591C7A021600C0CB1C /* Assets.xcassets in Resources */,
 				4C69F6571C7A021600C0CB1C /* Main.storyboard in Resources */,
 			);
@@ -314,14 +310,6 @@
 				4C69F6561C7A021600C0CB1C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4C69F65A1C7A021600C0CB1C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C69F65B1C7A021600C0CB1C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -413,6 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = meituan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcgzs.meituan;
@@ -424,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = meituan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcgzs.meituan;
@@ -498,6 +488,7 @@
 				4C69F6781C7A021600C0CB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C69F6791C7A021600C0CB1C /* Build configuration list for PBXNativeTarget "meituanTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +497,7 @@
 				4C69F67B1C7A021600C0CB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C69F67C1C7A021600C0CB1C /* Build configuration list for PBXNativeTarget "meituanUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +506,7 @@
 				4C69F67E1C7A021600C0CB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
