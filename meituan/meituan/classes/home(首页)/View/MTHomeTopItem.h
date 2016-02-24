@@ -10,4 +10,11 @@
 
 @interface MTHomeTopItem : UIView
 + (instancetype)item;
+
+- (void)addTarget:(id)target action:(nonnull SEL)action;
+
+
+- (void)setTitle:(NSString *)title;
+- (void)setSubtitle:(NSString *)subTitle;
+- (void)setIcon:(NSString *)icon highIcon:(NSString *)highIcon;
 @end

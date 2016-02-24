@@ -11,9 +11,13 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIView+Extension.h"
 #import "MTHomeTopItem.h"
+#import "MTCategoryViewController.h"
+#import "MTDistrictViewController.h"
 
 @interface MTHomeViewController ()
-
+@property (nonatomic, weak) UIBarButtonItem *categoryItem;
+@property (nonatomic, weak) UIBarButtonItem *districtItem;
+@property (nonatomic, weak) UIBarButtonItem *sortItem;
 @end
 
 @implementation MTHomeViewController
@@ -32,18 +36,39 @@ static NSString * const reuseIdentifier = @"Cell";
 //    self.view == self.tableview
 //    self.view == self.collectionView.superview
     self.collectionView.backgroundColor = MTGlobalBg;
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //监听城市改变
+    [MTNotificationCenter addObserver:self selector:@selector(cityChanged:) name:MTCItyDidChangeNotification object:nil];
     
-    // Do any additional setup after loading the view.
 
     //设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
 }
+
+-(void)dealloc
+{
+    [MTNotificationCenter removeObserver:self];
+}
+
+#pragma mark - 监听通知
+
+- (void)cityChanged:(NSNotification *)notification
+{
+    NSString *cityName = notification.userInfo[MTSelectCityName];
+    //更换顶部区域item的名字
+    MTHomeTopItem *districtTopItem = (MTHomeTopItem *)_districtItem.customView;
+    [districtTopItem setTitle:[NSString stringWithFormat:@"%@ - 全部",cityName]];
+    [districtTopItem setSubtitle:@""];
+    
+    //刷新九宫格数据
+#warning TODO
+    
+}
+
 #pragma mark 设置导航栏左右内容
 - (void)setupLeftNav
 {
@@ -52,17 +77,23 @@ static NSString * const reuseIdentifier = @"Cell";
     
     logo.enabled = NO;
     //2 类别
-    MTHomeTopItem *categoryItem = [MTHomeTopItem item];
-    UIBarButtonItem *category = [[UIBarButtonItem alloc] initWithCustomView:categoryItem];
+    MTHomeTopItem *categoryTopItem = [MTHomeTopItem item];
+    UIBarButtonItem *categoryItem = [[UIBarButtonItem alloc] initWithCustomView:categoryTopItem];
+    [categoryTopItem addTarget:self action:@selector(categoryClick)];
+    self.categoryItem = categoryItem;
     //2 地区
-    MTHomeTopItem *districtItem = [MTHomeTopItem item];
-    UIBarButtonItem *district = [[UIBarButtonItem alloc] initWithCustomView:districtItem];
+    MTHomeTopItem *districtTopItem = [MTHomeTopItem item];
+    UIBarButtonItem *districtItem = [[UIBarButtonItem alloc] initWithCustomView:districtTopItem];
+    [districtTopItem addTarget:self action:@selector(districtClick)];
+    self.districtItem = districtItem;
+    
     //2 排序
-    MTHomeTopItem *sortItem = [MTHomeTopItem item];
-    UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortItem];
+    MTHomeTopItem *sortTopItem = [MTHomeTopItem item];
+    UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
+    [sortTopItem addTarget:self action:@selector(sortClick)];
+    self.sortItem = sortItem;
     
-    
-    self.navigationItem.leftBarButtonItems = @[logo,category,district,sort];
+    self.navigationItem.leftBarButtonItems = @[logo,categoryItem,districtItem,sortItem];
 }
 
 - (void)setupRightNav
@@ -75,6 +106,27 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.rightBarButtonItems = @[mapItem,searchItem];
 }
 
+
+#pragma mark - 顶部Item点击方法
+
+- (void) categoryClick
+{
+    //显示分类菜单
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[MTCategoryViewController alloc] init]];
+    [popover presentPopoverFromBarButtonItem:self.categoryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+}
+- (void) districtClick
+{
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[MTDistrictViewController alloc] init]];
+    [popover presentPopoverFromBarButtonItem:self.districtItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+- (void) sortClick
+{
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[MTCategoryViewController alloc] init]];
+    [popover presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    MTLog(@"sortClick");
+}
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

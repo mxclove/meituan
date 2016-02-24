@@ -59,6 +59,11 @@
                 <constraint firstItem="NaE-ig-rax" firstAttribute="leading" secondItem="1Kf-T6-ege" secondAttribute="trailing" constant="40" id="ynl-ED-wlB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconButton" destination="pg1-xo-bd6" id="G08-nu-hq9"/>
+                <outlet property="subTitleLabel" destination="6vB-ma-Fkh" id="Ju8-bk-jgi"/>
+                <outlet property="titleLabel" destination="NaE-ig-rax" id="obj-xD-4PN"/>
+            </connections>
             <point key="canvasLocation" x="210" y="168"/>
         </view>
     </objects>

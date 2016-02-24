@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MTHomeDropdown">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="360"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="buC-Y8-0Ja" userLabel="主表">
+                    <rect key="frame" x="0.0" y="0.0" width="207" height="360"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="bCQ-VF-TwT"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="obg-sJ-SJ3"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VCf-Cz-aBy" userLabel="从表">
+                    <rect key="frame" x="207" y="0.0" width="206" height="360"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Ydk-VT-Eg0"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="NLg-yy-0WE"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="VCf-Cz-aBy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0mk-Ie-Oha"/>
+                <constraint firstItem="VCf-Cz-aBy" firstAttribute="width" secondItem="buC-Y8-0Ja" secondAttribute="width" id="73H-98-Cgk"/>
+                <constraint firstItem="VCf-Cz-aBy" firstAttribute="leading" secondItem="buC-Y8-0Ja" secondAttribute="trailing" id="GSe-59-WiM"/>
+                <constraint firstAttribute="trailing" secondItem="VCf-Cz-aBy" secondAttribute="trailing" id="MK3-Fm-kTE"/>
+                <constraint firstAttribute="bottom" secondItem="buC-Y8-0Ja" secondAttribute="bottom" id="TRy-Ei-HPH"/>
+                <constraint firstItem="buC-Y8-0Ja" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ybd-nT-omx"/>
+                <constraint firstItem="buC-Y8-0Ja" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="h6y-xV-Wgo"/>
+                <constraint firstAttribute="bottom" secondItem="VCf-Cz-aBy" secondAttribute="bottom" id="xc3-Mu-yGd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mainTableView" destination="buC-Y8-0Ja" id="5g8-5r-be4"/>
+                <outlet property="subTableView" destination="VCf-Cz-aBy" id="cSb-3P-C7j"/>
+            </connections>
+            <point key="canvasLocation" x="322.5" y="266"/>
+        </view>
+    </objects>
+</document>
