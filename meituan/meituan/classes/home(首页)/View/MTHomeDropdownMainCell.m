@@ -13,7 +13,7 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    static NSString *ID = @"sub";
+    static NSString *ID = @"main";
     MTHomeDropdownMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[MTHomeDropdownMainCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];

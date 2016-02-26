@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTHomeDropdown.h"
 
-@interface MTCategory : NSObject
+@interface MTCategory : NSObject 
 @property (nonatomic, copy) NSString *name;
 /**
  *  子类别的名称

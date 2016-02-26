@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5A12561C8089590083D883 /* MTSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A12551C8089590083D883 /* MTSort.m */; };
+		4C5A12591C808BF40083D883 /* MTSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A12581C808BF40083D883 /* MTSortViewController.m */; };
 		4C646D1B1C7D3ABB007275B3 /* MTCitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C646D191C7D3ABB007275B3 /* MTCitySearchResultViewController.m */; };
 		4C646D1C1C7D3ABB007275B3 /* MTCitySearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C646D1A1C7D3ABB007275B3 /* MTCitySearchResultViewController.xib */; };
 		4C646D1F1C7D3E29007275B3 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C646D1E1C7D3E29007275B3 /* UIView+AutoLayout.m */; };
@@ -88,6 +90,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C5A12541C8089590083D883 /* MTSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSort.h; sourceTree = "<group>"; };
+		4C5A12551C8089590083D883 /* MTSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSort.m; sourceTree = "<group>"; };
+		4C5A12571C808BF40083D883 /* MTSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSortViewController.h; sourceTree = "<group>"; };
+		4C5A12581C808BF40083D883 /* MTSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSortViewController.m; sourceTree = "<group>"; };
 		4C646D181C7D3ABB007275B3 /* MTCitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCitySearchResultViewController.h; sourceTree = "<group>"; };
 		4C646D191C7D3ABB007275B3 /* MTCitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCitySearchResultViewController.m; sourceTree = "<group>"; };
 		4C646D1A1C7D3ABB007275B3 /* MTCitySearchResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTCitySearchResultViewController.xib; sourceTree = "<group>"; };
@@ -353,6 +359,8 @@
 				4C7694D41C7C8D2800C5CAA1 /* MTCityGroup.m */,
 				4C7694D01C7C847A00C5CAA1 /* MTRegion.h */,
 				4C7694D11C7C847A00C5CAA1 /* MTRegion.m */,
+				4C5A12541C8089590083D883 /* MTSort.h */,
+				4C5A12551C8089590083D883 /* MTSort.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +395,8 @@
 				4C7694C31C7C20FE00C5CAA1 /* MTDistrictViewController.h */,
 				4C7694C41C7C20FE00C5CAA1 /* MTDistrictViewController.m */,
 				4C7694C51C7C20FE00C5CAA1 /* MTDistrictViewController.xib */,
+				4C5A12571C808BF40083D883 /* MTSortViewController.h */,
+				4C5A12581C808BF40083D883 /* MTSortViewController.m */,
 				4C7694C81C7C281900C5CAA1 /* MTCityViewController.h */,
 				4C7694C91C7C281900C5CAA1 /* MTCityViewController.m */,
 				4C7694CA1C7C281900C5CAA1 /* MTCityViewController.xib */,
@@ -681,6 +691,7 @@
 				4CE4A5101C7B4F2300828E70 /* MJMethod.m in Sources */,
 				4CDE22841C7AE497000FBAD4 /* UIView+Extension.m in Sources */,
 				4C7694D51C7C8D2800C5CAA1 /* MTCityGroup.m in Sources */,
+				4C5A12591C808BF40083D883 /* MTSortViewController.m in Sources */,
 				4CE4A4EF1C7B4E4700828E70 /* MJRefreshHeaderView.m in Sources */,
 				4CE4A4EE1C7B4E4700828E70 /* MJRefreshFooterView.m in Sources */,
 				4CDE22901C7B163A000FBAD4 /* MTCategoryViewController.m in Sources */,
@@ -706,6 +717,7 @@
 				4CE4A5141C7B4F2300828E70 /* NSObject+MJKeyValue.m in Sources */,
 				4C7694B71C7BEE9700C5CAA1 /* NSArray+MASAdditions.m in Sources */,
 				4CE4A50B1C7B4F2300828E70 /* MJArgument.m in Sources */,
+				4C5A12561C8089590083D883 /* MTSort.m in Sources */,
 				4C7694B81C7BEE9700C5CAA1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				4C646D231C7D8FC7007275B3 /* MTMetaTool.m in Sources */,
 				4CDE22881C7AE497000FBAD4 /* MTConst.m in Sources */,
@@ -833,6 +845,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = meituan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcgzs.meituan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -845,6 +858,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = meituan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcgzs.meituan;
 				PRODUCT_NAME = "$(TARGET_NAME)";

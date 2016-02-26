@@ -10,5 +10,6 @@
 
 @interface MTMetaTool : NSObject
 + (NSArray *)cities;
-
++ (NSArray *)categoties;
++ (NSArray *)sorts;
 @end

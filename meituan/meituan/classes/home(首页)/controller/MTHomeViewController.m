@@ -13,11 +13,16 @@
 #import "MTHomeTopItem.h"
 #import "MTCategoryViewController.h"
 #import "MTDistrictViewController.h"
+#import "MTSortViewController.h"
+#import "MTMetaTool.h"
+#import "MTRegion.h"
+#import "MTCity.h"
 
 @interface MTHomeViewController ()
 @property (nonatomic, weak) UIBarButtonItem *categoryItem;
 @property (nonatomic, weak) UIBarButtonItem *districtItem;
 @property (nonatomic, weak) UIBarButtonItem *sortItem;
+@property (nonatomic, copy) NSString *selectedCityName;
 @end
 
 @implementation MTHomeViewController
@@ -58,10 +63,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)cityChanged:(NSNotification *)notification
 {
-    NSString *cityName = notification.userInfo[MTSelectCityName];
+    _selectedCityName = notification.userInfo[MTSelectCityName];
     //更换顶部区域item的名字
     MTHomeTopItem *districtTopItem = (MTHomeTopItem *)_districtItem.customView;
-    [districtTopItem setTitle:[NSString stringWithFormat:@"%@ - 全部",cityName]];
+    [districtTopItem setTitle:[NSString stringWithFormat:@"%@ - 全部",_selectedCityName]];
     [districtTopItem setSubtitle:@""];
     
     //刷新九宫格数据
@@ -118,12 +123,16 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (void) districtClick
 {
-    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[MTDistrictViewController alloc] init]];
+    MTDistrictViewController *district = [[MTDistrictViewController alloc] init];
+    MTCity *city = [[MTMetaTool cities] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name = %@",self.selectedCityName]].firstObject;
+    
+    district.regions = city.regions;
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:district];
     [popover presentPopoverFromBarButtonItem:self.districtItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 - (void) sortClick
 {
-    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[MTCategoryViewController alloc] init]];
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:[[MTSortViewController alloc] init]];
     [popover presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     MTLog(@"sortClick");
 }
@@ -143,40 +152,11 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
-    
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

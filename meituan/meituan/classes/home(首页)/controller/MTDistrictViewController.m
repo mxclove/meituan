@@ -12,8 +12,10 @@
 #import "UIView+Extension.h"
 #import "MTCityViewController.h"
 #import "MTNavigationController.h"
+#import "MTMetaTool.h"
+#import "MTRegion.h"
 
-@interface MTDistrictViewController ()
+@interface MTDistrictViewController () <MTHomeDropdownDataSource>
 - (IBAction)changeCity;
 
 
@@ -28,6 +30,7 @@
     UIView *title = [self.view.subviews firstObject];
     dropdown.y = title.height;
     [self.view addSubview:dropdown];
+    dropdown.dataSource = self;
     self.preferredContentSize = CGSizeMake(dropdown.width, CGRectGetMaxY(dropdown.frame));
 }
 
@@ -47,5 +50,25 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+
+#pragma mark - MTHomeDropdownDataSource
+- (NSInteger)numberOfRowsInMainTable:(MTHomeDropdown *)homeDropdown
+{
+
+    return self.regions.count;
+}
+
+- (NSString *)homeDropdown:(MTHomeDropdown *)homeDropdown titleForRowInMainTable:(int)row
+{
+    MTRegion *region = self.regions[row];
+    return region.name;
+}
+
+
+- (NSArray *)homeDropdown:(MTHomeDropdown *)homeDropdown subDataForRowInMainTable:(int)row
+{
+    MTRegion *region = self.regions[row];
+    return region.subregions;
+}
 
 @end
